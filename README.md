@@ -20,8 +20,8 @@
 
 2.Cоздать и активировать виртуальное окружение:
 
-        py -m venv .venv
-        source .venv/Scripts/activate
+        py -m venv venv
+        source venv/Scripts/activate
 
 3.Установить зависимости из файла requirements.txt:
 
@@ -31,7 +31,7 @@
 
         cd blogicum
         ./manage.py migrate
-        ./manage.py loaddata db.json 
+        ./manage.py loaddata indented_db.json 
         ./manage.py runserver
 
 6.Перейти на локальный сервер:

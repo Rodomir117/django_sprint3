@@ -1,7 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-TEXT_LENGHT = 256
+from .manager import PostQuerySet, PublishedPostManager
+
+from .constants import TEXT_LENGHT
+
 User = get_user_model()
 
 
@@ -18,7 +21,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ["-pub_date"]
+        ordering = ['-pub_date']
 
 
 class Post(BaseModel):
@@ -49,6 +52,9 @@ class Post(BaseModel):
         related_name='posts',
         verbose_name='Категория',
     )
+
+    objects = PostQuerySet.as_manager()
+    post_objects = PublishedPostManager()
 
     class Meta:
         verbose_name = 'публикация'
