@@ -44,6 +44,7 @@ class Post(BaseModel):
         null=True,
         related_name='posts',
         verbose_name='Местоположение',
+        blank=True,
     )
     category = models.ForeignKey(
         'Category',
